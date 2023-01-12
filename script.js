@@ -80,7 +80,7 @@ const restGame = () => {
     playerOneCurrentScore.textContent = playerOneTotalScore.textContent = playerTwoCurrentScore.textContent = playerTwoTotalScore.textContent = 0;
     playerOneName.textContent = 'PLAYER 1';
     playerTwoName.textContent = 'PLAYER 2';
-    document.querySelector(`.player--0`).classList.a('player--active');
+    document.querySelector(`.player--0`).classList.remove('player--active');
     document.querySelector(`.player--1`).classList.remove('player--active');
 }
 
