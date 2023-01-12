@@ -17,7 +17,7 @@ body {
   font-weight: 400;
   height: 100vh;
   color: #333;
-  background-image:url(grid-1s-1084px.svg);
+  background-image:url(/starter/grid-1s-1084px.svg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,7 +71,18 @@ main {
 }
 
 .player--active {
+  position: relative;
   background-color: rgba(255, 255, 255, 0.4);
+}
+.player--active::before  {
+  position: absolute;
+  top:9rem;
+  left:7rem;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgb(184, 1, 1);
+  content:'';
 }
 .player--active .name {
   font-weight: 700;
