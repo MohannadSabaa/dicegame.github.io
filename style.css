@@ -17,7 +17,8 @@ body {
   font-weight: 400;
   height: 100vh;
   color: #333;
-  background-image:url(grid-1s-1084px.svg);
+
+  background-image:url(/grid-1s-1084px.svg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -181,7 +182,7 @@ main {
   font-weight: 700;
   color: #c7365f;
 }
-@media screen and (min-width: 400px) and (max-width: 1000px) {
+@media screen and (min-width: 350px) and (max-width: 1000px) {
 
   main {
     position: relative;
