@@ -4,7 +4,6 @@ const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
 const btnAgain = document.querySelector('.btn--new');
 const diceUI = document.querySelector('.dice');
-
 const playerOneName = document.querySelector('#name--0');
 const playerTwoName = document.querySelector('#name--1');
 const playerOneTotalScore = document.querySelector('#score--0');
@@ -18,13 +17,17 @@ let score = [0,0];
 let totalScore = [0,0];
 let activePlayer = 0; // switching between players.
 let game = true; // for preventing buttons to keep active if there is a winner.
+const activeSwitcher = () => {
+    document.querySelector(`.player--${activePlayer}`).classList.contains('player--active') ?    document.querySelector(`.player--${activePlayer}`).classList.remove('player--active') :    document.querySelector(`.player--${activePlayer}`).classList.add('player--active');
+}
 
 const playerSwitcher = function() {
 
-    document.querySelector(`.player--${activePlayer}`).classList.remove('player--active');
+  activeSwitcher();
     document.querySelector(`#current--${activePlayer}`).textContent = score[activePlayer] = 0;
     activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
-    document.querySelector(`.player--${activePlayer}`).classList.add('player--active');
+activeSwitcher();
+    // document.querySelector(`.player--${activePlayer}`).classList.remove('player--active');
 }
 
 const rollHandler = function() {
@@ -43,7 +46,7 @@ const rollHandler = function() {
         }
 
         else {
-        
+            document.querySelector(`.player--${activePlayer}`).classList.add('player--active');
         document.querySelector(`#current--${activePlayer}`).textContent = score[activePlayer] += dice;
         }
     }
@@ -77,7 +80,8 @@ const restGame = () => {
     playerOneCurrentScore.textContent = playerOneTotalScore.textContent = playerTwoCurrentScore.textContent = playerTwoTotalScore.textContent = 0;
     playerOneName.textContent = 'PLAYER 1';
     playerTwoName.textContent = 'PLAYER 2';
-
+    document.querySelector(`.player--0`).classList.a('player--active');
+    document.querySelector(`.player--1`).classList.remove('player--active');
 }
 
 btnRoll.addEventListener('click', rollHandler);
